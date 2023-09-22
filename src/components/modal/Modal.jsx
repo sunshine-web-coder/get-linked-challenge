@@ -15,7 +15,7 @@ export default function Modal({ closeModal }) {
             <div>
                 <img src={img1} className="max-w-[200px] md:max-w-[300px] mx-auto" alt="" />
             </div>
-            <div className="text-center text-white text-base md:text-[32px] font-semibold">Congratulations<br/>you have successfully Registered!</div>
+            <div className="text-center text-white text-base md:text-[32px] leading-10 font-semibold">Congratulations<br/>you have successfully Registered!</div>
             <div className="mt-[18px] max-w-[300px] mx-auto relative text-center text-white text-xs md:text-sm font-semibold">
                 <p>Yes, it was easy and you did it!<br/>check your mail box for next step</p>
                 <img src={wink} className="absolute bottom-0 right-0" alt="" />

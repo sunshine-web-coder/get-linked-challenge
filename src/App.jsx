@@ -6,7 +6,6 @@ import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Contact from "./pages/contact/Contact";
 import Register from "./pages/auth/Register";
-import ApiFecthTesting from "./components/ApiFecthTesting";
 
 function App() {
   return (
@@ -17,7 +16,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/register" element={<Register />} />
-        <Route path="apifecthtesting" element={<ApiFecthTesting />} />
       </Routes>
       <Footer />
     </div>

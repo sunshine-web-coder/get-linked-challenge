@@ -11,6 +11,7 @@ import { useState } from "react";
 import Button from "../../components/button/Button";
 import { postContactForm } from "../../api/postContactForm";
 import toast from "react-hot-toast";
+import { contactFormValidate } from "../../components/validateForm/contactFormValidate";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -18,6 +19,8 @@ export default function Contact() {
     email: "",
     message: "",
   });
+
+  const [formErrors, setFormErrors] = useState({});
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -28,38 +31,28 @@ export default function Contact() {
     });
     console.log(formData); // Check the state in the console
   };
-  
-
-  const isEmailValid = (email) => {
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    return emailRegex.test(email);
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.first_name || !formData.email || !formData.message) {
-      toast.error("Please fill in all required fields.");
-      return;
-    }
+    const errors = contactFormValidate(formData);
 
-    if (!isEmailValid(formData.email)) {
-      toast.error("Please enter a valid email address.");
-      return;
-    }
-
-    try {
-      await postContactForm(formData);
-      setFormData({
-        first_name: "",
-        email: "",
-        message: "",
-      });
-      toast.success(
-        "Message sent successfully, we'll reply to your message as soon as possible"
-      );
-    } catch (error) {
-      toast.error("Failed to send message. Please try again later.");
+    if (Object.keys(errors).length === 0) {
+      try {
+        await postContactForm(formData);
+        setFormData({
+          first_name: "",
+          email: "",
+          message: "",
+        });
+        toast.success(
+          "Message sent successfully, we'll reply to your message as soon as possible"
+        );
+      } catch (error) {
+        toast.error("Failed to send message. Please try again later.");
+      }
+    } else {
+      setFormErrors(errors);
     }
   };
 
@@ -67,7 +60,11 @@ export default function Contact() {
     <div className="p-[16px] border-b border-gray-700 pt-[100px] md:pt-[140px] pb-[62px] ">
       <div className="max-[767px]:flex-col-reverse max-w-[1130px] mx-auto flex gap-[20px] justify-between">
         <div className="relative">
-          <img src={img1} className="absolute left-[0px] md:left-[0px] bottom-[120px] md:top-[-80px] w-[11px] h-[13px] md:w-[21px] md:h-[25px]" alt=""/>
+          <img
+            src={img1}
+            className="absolute left-[0px] md:left-[0px] bottom-[120px] md:top-[-80px] w-[11px] h-[13px] md:w-[21px] md:h-[25px]"
+            alt=""
+          />
           <div className="relative max-[767px]:hidden">
             <div className="text-fuchsia-500 text-[32px] font-semibold font-['Clash Display']">
               Get in touch
@@ -99,24 +96,51 @@ export default function Contact() {
             </div>
             <div className="flex gap-3 items-center">
               <Link to="">
-                <img className="max-[767px]:w-3 max-[767px]:h-3" src={insta} alt=""/>
+                <img
+                  className="max-[767px]:w-3 max-[767px]:h-3"
+                  src={insta}
+                  alt=""
+                />
               </Link>
               <Link to="">
-                <img className="max-[767px]:w-3 max-[767px]:h-3" src={twitter} alt=""/>
+                <img
+                  className="max-[767px]:w-3 max-[767px]:h-3"
+                  src={twitter}
+                  alt=""
+                />
               </Link>
               <Link to="">
-                <img className="max-[767px]:w-2 max-[767px]:h-4" src={fb} alt=""/>
+                <img
+                  className="max-[767px]:w-2 max-[767px]:h-4"
+                  src={fb}
+                  alt=""
+                />
               </Link>
               <Link to="">
-                <img className="max-[767px]:w-3 max-[767px]:h-3" src={linkedln} />
+                <img
+                  className="max-[767px]:w-3 max-[767px]:h-3"
+                  src={linkedln}
+                />
               </Link>
             </div>
           </div>
         </div>
         <div className="relative p-[60px] max-[767px]:p-[20px] max-[767px]:pb-[3px] max-[767px]:w-full w-[617px] max-[767px]:bg-transparent bg-white bg-opacity-5 rounded-xl shadow">
-          <img src={img3} className="absolute top-[10%] left-[80%] md:right-0 w-[11px] h-[13px] md:w-[21px] md:h-[25px]" alt=""/>
-          <img src={img2} className="absolute max-[767px]:top-[-10%] bottom-[22%] left-[50%] md:left-[-1%] w-[11px] h-[13px] md:w-[21px] md:h-[25px]" alt=""/>
-          <img src={img4} className="absolute bottom-[0px] right-[-7%] w-[11px] h-[13px] md:w-[21px] md:h-[25px]" alt=""/>
+          <img
+            src={img3}
+            className="absolute top-[10%] left-[80%] md:right-0 w-[11px] h-[13px] md:w-[21px] md:h-[25px]"
+            alt=""
+          />
+          <img
+            src={img2}
+            className="absolute max-[767px]:top-[-10%] bottom-[22%] left-[50%] md:left-[-1%] w-[11px] h-[13px] md:w-[21px] md:h-[25px]"
+            alt=""
+          />
+          <img
+            src={img4}
+            className="absolute bottom-[0px] right-[-7%] w-[11px] h-[13px] md:w-[21px] md:h-[25px]"
+            alt=""
+          />
           <div>
             <div className="text-fuchsia-500 text-xl font-semibold font-['Clash Display']">
               Questions or need assistance?
@@ -143,6 +167,11 @@ export default function Contact() {
                 onChange={handleInputChange}
                 className={`custom_input pl-[24px] md:pl-[29px] pr-[24px] md:pr-[29px] pt-[13px] pb-[12px] text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
               />
+              {formErrors.first_name && (
+                <div className="text-[#a94442] text-sm font-normal mt-3">
+                  {formErrors.first_name}
+                </div>
+              )}
             </div>
             <div className="max-[767px]:mb-[25px] mb-[42px]">
               <input
@@ -154,6 +183,11 @@ export default function Contact() {
                 onChange={handleInputChange}
                 className={`custom_input pl-[24px] md:pl-[29px] pr-[24px] md:pr-[29px] pt-[13px] pb-[12px] text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
               />
+              {formErrors.email && (
+                <div className="text-[#a94442] text-sm font-normal mt-3">
+                  {formErrors.email}
+                </div>
+              )}
             </div>
             <div className="mb-[31px]">
               <textarea
@@ -164,7 +198,12 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleInputChange}
                 className={`resize-none custom_textarea pl-[24px] md:pl-[29px] pr-[24px] md:pr-[29px] pt-[13px] pb-[12px] text-white text-base font-normal w-full h-[119px] bg-white bg-opacity-5 rounded shadow border border-white`}
-                />
+              />
+              {formErrors.message && (
+                <div className="text-[#a94442] text-sm font-normal mt-3">
+                  {formErrors.message}
+                </div>
+              )}
             </div>
             <div className="flex items-center justify-center">
               <Button type="submit" text="Submit" />

@@ -11,17 +11,18 @@
 }
 .custom_input,
 .custom_textarea {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: normal;
+  padding-left: 15px;
+  padding-right: 10px;
   &::placeholder {
     color: white;
-    font-size: 16px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
     font-weight: normal;
   }
 }
-
-.register_input {
-  &::placeholder {
-    color: white;
-    font-size: 14px;
-    font-weight: normal;
-  }
+.custom_input{
+  margin-top: 11px;
 }

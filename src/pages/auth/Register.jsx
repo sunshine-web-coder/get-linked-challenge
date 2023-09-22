@@ -3,22 +3,28 @@ import img2 from "../../assets/star-pu.png";
 import img3 from "../../assets/star-gray.png";
 import img5 from "../../assets/auth/walking.png";
 import img6 from "../../assets/auth/3d-graphic-designer.png";
-import Input from "../../components/input/Input";
 import { useEffect, useState } from "react";
 import Button from "../../components/button/Button";
-import CustomDropdown from "../../components/customDropdown/CustomDropdown";
 import Modal from "../../components/modal/Modal";
 import { fetchCategoryList } from "../../api/fetchCategoryList";
+import { submitRegistration } from "../../api/submitRegistration";
+import CategoryListbox from "../../components/categoryListbox/CategoryListbox";
+import { validateForm } from "../../components/validateForm/validateForm";
 
 export default function Register() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [projectTopic, setProjectTopic] = useState("");
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [categoryList, setCategoryList] = useState([]);
-  const [selectedOption2, setSelectedOption2] = useState([]);
+  const [formData, setFormData] = useState({
+    email: "",
+    phone_number: "",
+    team_name: "",
+    group_size: null,
+    project_topic: "",
+    category: null,
+    privacy_poclicy_accepted: false,
+  });
+
+  const [categories, setCategories] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [formErrors, setFormErrors] = useState({});
 
   const toggleOpenModal = () => {
     setOpenModal(true);
@@ -32,53 +38,64 @@ export default function Register() {
     document.documentElement.classList.remove("no-scroll");
   };
 
-  const groupSize = ["Group size 1", "Group size 2", "Group size 3"];
-
-  const handleSelect2 = (option) => {
-    setSelectedOption2(option);
-  };
-
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-  };
-
-  const handlePhoneChange = (e) => {
-    setPhone(e.target.value);
-  };
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handleProjectTopicChange = (e) => {
-    setProjectTopic(e.target.value);
-  };
-
-  const handleSelect = (option) => {
-    // Find the selected category object based on the name
-    const selectedCategory = categoryList.find(
-      (category) => category.name === option
-    );
-
-    if (selectedCategory) {
-      setSelectedOption(option);
-      console.log("Selected Category ID:", selectedCategory.id);
-    }
-  };
-
   useEffect(() => {
     fetchCategoryList()
       .then((data) => {
-        setCategoryList(data);
+        if (data.length > 0) {
+          setFormData({
+            ...formData,
+            category: data[0].id,
+          });
+        }
+        setCategories(data);
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch((error) => console.error("Error fetching categories:", error));
   }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value, type, checked } = e.target;
+
+    if (type === "checkbox") {
+      setFormData({
+        ...formData,
+        [name]: checked,
+      });
+    } else {
+      setFormData({
+        ...formData,
+        [name]: name === "group_size" ? parseInt(value) : value,
+      });
+    }
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    toggleOpenModal();
+
+    const errors = validateForm(formData);
+
+    if (Object.keys(errors).length === 0 && formData.privacy_poclicy_accepted) {
+      submitRegistration(formData)
+        .then((data) => {
+          console.log("Registration successful:", data);
+
+          setFormData({
+            email: "",
+            phone_number: "",
+            team_name: "",
+            group_size: null,
+            project_topic: "",
+            category: null,
+            privacy_poclicy_accepted: false,
+          });
+
+          toggleOpenModal();
+        })
+        .catch((error) => {
+          console.error("Error submitting registration:", error);
+        });
+    } else {
+      setFormErrors(errors);
+    }
   };
 
   return (
@@ -123,6 +140,7 @@ export default function Register() {
           <div className="text-white text-xl md:text-2xl font-normal mb-[23px] md:mb-[33px] mt-[19px]">
             CREATE YOUR ACCOUNT
           </div>
+
           <form onSubmit={handleSubmit} className="max-[767px]:mb-[30px]">
             <div className="max-[767px]:mb-[18px] mb-[29px] md:flex flex-col md:flex-row gap-[32px] justify-between">
               <div className="w-full max-[767px]:mb-[18px]">
@@ -132,13 +150,19 @@ export default function Register() {
                 >
                   Team’s Name
                 </label>
-                <Input
+                <input
                   type="text"
+                  name="team_name"
                   placeholder="Enter the name of your group"
-                  value={name}
-                  onChange={handleNameChange}
-                  className="pl-[10px] md:pl-[18px] md:pr-[18px] mt-[11px] text-[13px] md:text-sm register_input"
+                  value={formData.team_name}
+                  onChange={handleInputChange}
+                  className={`custom_input text-white text-sm font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
+                {formErrors.team_name && (
+                  <div className="text-[#a94442] text-sm font-normal mt-3">
+                    {formErrors.team_name}
+                  </div>
+                )}
               </div>
               <div className="w-full">
                 <label
@@ -147,16 +171,21 @@ export default function Register() {
                 >
                   Phone
                 </label>
-                <Input
-                  type="number"
+                <input
+                  type="tel"
+                  name="phone_number"
                   placeholder="Enter your phone number"
-                  value={phone}
-                  onChange={handlePhoneChange}
-                  className="pl-[10px] md:pl-[18px] md:pr-[18px] mt-[11px] text-[13px] md:text-sm register_input"
+                  value={formData.phone_number}
+                  onChange={handleInputChange}
+                  className={`custom_input text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
+                {formErrors.phone_number && (
+                  <div className="text-[#a94442] text-sm font-normal mt-3">
+                    {formErrors.phone_number}
+                  </div>
+                )}
               </div>
             </div>
-
             <div className="max-[767px]:mb-[18px] mb-[29px] md:flex flex-col md:flex-row gap-[32px] justify-between">
               <div className="w-full max-[767px]:mb-[18px]">
                 <label
@@ -165,13 +194,19 @@ export default function Register() {
                 >
                   Email
                 </label>
-                <Input
+                <input
                   type="email"
+                  name="email"
                   placeholder="Enter your email address"
-                  value={email}
-                  onChange={handleEmailChange}
-                  className="pl-[10px] md:pl-[18px] md:pr-[18px] mt-[11px] text-[13px] md:text-sm register_input"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className={`custom_input text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
+                {formErrors.email && (
+                  <div className="text-[#a94442] text-sm font-normal mt-3">
+                    {formErrors.email}
+                  </div>
+                )}
               </div>
               <div className="w-full">
                 <label
@@ -180,13 +215,19 @@ export default function Register() {
                 >
                   Project Topic
                 </label>
-                <Input
+                <input
                   type="text"
+                  name="project_topic"
                   placeholder="What is your group project topic"
-                  value={projectTopic}
-                  onChange={handleProjectTopicChange}
-                  className="pl-[10px] md:pl-[18px] md:pr-[18px] mt-[11px] text-[13px] md:text-sm register_input"
+                  value={formData.project_topic}
+                  onChange={handleInputChange}
+                  className={`custom_input text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
+                {formErrors.project_topic && (
+                  <div className="text-[#a94442] text-sm font-normal mt-3">
+                    {formErrors.project_topic}
+                  </div>
+                )}
               </div>
             </div>
 
@@ -198,13 +239,10 @@ export default function Register() {
                 >
                   Category
                 </label>
-                <CustomDropdown
-                  options={categoryList.map((category) => category.name)}
-                  selectedOption={selectedOption}
-                  onSelect={handleSelect}
-                  className="custom-dropdown mt-[11px]"
-                  defaultText="Select your category"
-                  style={{ color: 'red' }}
+                <CategoryListbox
+                  categories={categories}
+                  formData={formData}
+                  setFormData={setFormData}
                 />
               </div>
               <div className="w-full">
@@ -214,12 +252,13 @@ export default function Register() {
                 >
                   Group Size
                 </label>
-                <CustomDropdown
-                  options={groupSize}
-                  selectedOption={selectedOption2}
-                  onSelect={handleSelect2}
-                  className="custom-dropdown mt-[11px]"
-                  defaultText="Select"
+                <input
+                  type="number"
+                  name="group_size"
+                  placeholder="Group size"
+                  value={formData.group_size}
+                  onChange={handleInputChange}
+                  className={`custom_input text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
               </div>
             </div>
@@ -231,7 +270,9 @@ export default function Register() {
                 <input
                   id="default-checkbox"
                   type="checkbox"
-                  value=""
+                  name="privacy_poclicy_accepted"
+                  checked={formData.privacy_poclicy_accepted}
+                  onChange={handleInputChange}
                   className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 />
                 <label
@@ -242,8 +283,12 @@ export default function Register() {
                   policy
                 </label>
               </div>
+              {formErrors.privacy_poclicy_accepted && (
+                <div className="text-[#a94442] text-sm font-normal mt-3">
+                  {formErrors.privacy_poclicy_accepted}
+                </div>
+              )}
             </div>
-
             <div className="w-full mt-[22px]">
               <Button type="submit" text="Register Now" className="w-full" />
             </div>
