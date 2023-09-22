@@ -12,6 +12,7 @@ import vector1Img from "../../assets/vector1.png";
 import spark1f4a5Img from "../../assets/1f4a5.png";
 import style from "./Banner.module.scss";
 
+
 export default function Banner() {
   return (
     <div className="pt-[32px]">
@@ -90,7 +91,7 @@ export default function Banner() {
               <div className="max-w-max relative">
                 <Link
                   className="w-[152px] md:w-[172px] h-[46.84px] md:h-[53px] flex items-center justify-center text-white text-base font-normal bg-gradient-to-l from-purple-600 via-fuchsia-500 to-pink-500 rounded"
-                  to=""
+                  to="/register"
                 >
                   Register
                 </Link>

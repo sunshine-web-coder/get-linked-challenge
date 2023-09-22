@@ -2,10 +2,22 @@ import img1 from "../../../assets/prizes-and-rewards/9486889.png";
 import img2 from "../../../assets/prizes-and-rewards/r.png";
 import img3 from "../../../assets/sata-gra.png";
 import img4 from "../../../assets/star.png";
+import purpleLensFlare7Img from "../../../assets/Purple-Lens-Flare7.png";
+import purpleLensFlare4Img from "../../../assets/Purple-Lens-Flare4.png";
 
 export default function PrizesAndRewards() {
   return (
-    <div className="border-b border-gray-700 pl-4 pr-4 pt-[20px] md:pt-[62px] pb-[62px]">
+    <div className="border-b relative border-gray-700 pl-4 pr-4 pt-[20px] md:pt-[62px] pb-[62px]">
+      <img
+        className="absolute w-[403px] h-[444px] md:w-[1037px] md:h-[948px] z-[-1] top-[50px] md:top-[-150px] left-[0px] opacity-[0.5]"
+        src={purpleLensFlare7Img}
+        alt=""
+      />
+      <img
+        className="absolute w-[249px] h-[444px] md:w-[1037px] md:h-[948px] z-[-1] max-[1150px]:bottom-[0px] md:top-[-60px] right-[-50px] opacity-[0.5]"
+        src={purpleLensFlare4Img}
+        alt=""
+      />
       <div className="max-[1150px]:flex max-[1150px]:flex-col max-[1150px]:items-center max-[1150px]:justify-center">
         <div className="relative max-[1150px]:mb-[50px] flex justify-end max-[1150px]:pl-0 pl-[130px]">
           <img className="absolute max-[1150px]:left-[45px] left-[300px] w-[7px] h-[9px] top-2 md:w-[21px] md:h-[25px]" src={img3} alt="" />

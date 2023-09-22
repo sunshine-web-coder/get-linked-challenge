@@ -2,12 +2,24 @@ import img1 from "../../../assets/star-pu.png";
 import img2 from "../../../assets/8046554.png";
 import img3 from "../../../assets/mobile-8046554.png";
 import img4 from "../../../assets/star.png";
+import purpleLensFlare6Img from "../../../assets/Purple-Lens-Flare6.png";
+import purpleLensFlare5Img from "../../../assets/Purple-Lens-Flare5.png";
 
 import { Link } from "react-router-dom";
 
 export default function JudgingCriteriaKeyAttributes() {
   return (
-    <div className="border-b border-gray-700 pl-4 pr-4 pt-[20px] md:pt-[62px] pb-[62px]">
+    <div className="border-b relative border-gray-700 pl-4 pr-4 pt-[20px] md:pt-[62px] pb-[62px]">
+      <img
+        className="absolute w-[404px] h-[444px] md:w-[1037px] md:h-[948px] z-[-1] top-[50px] md:top-[100px] left-[0px] opacity-[0.5]"
+        src={purpleLensFlare5Img}
+        alt=""
+      />
+      <img
+        className="absolute w-[252px] h-[444px] md:w-[1037px] md:h-[948px] z-[-1] bottom-[0px] md:top-[300px] right-[0px] md:right-[-300px] opacity-[0.5]"
+        src={purpleLensFlare6Img}
+        alt=""
+      />
       <div className="max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center">
         <div className="custom_container flex items-center gap-[0px] md:gap-[50px] max-[1150px]:flex-col">
           <div className="flex items-center justify-center md:justify-left max-[334px]:w-full w-full md:w-full max-[1150px]:pt-[50px] max-[767px]:h-[325px] max-[1150px]:h-[525px] h-[725px] relative">
@@ -83,7 +95,7 @@ export default function JudgingCriteriaKeyAttributes() {
                   specific technologies or APIs, and any other
                   competition-specific requirements.
                 </p>
-                <div className="max-[767px]:max-w-full max-w-max max-[767px]:flex max-[767px]:items-center max-[767px]:justify-center mt-11 relative">
+                <div className="max-[1150px]:max-w-full max-w-max max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center mt-11 relative">
                   <Link
                     className="w-[152px] md:w-[172px] h-[46.84px] md:h-[53px] flex items-center justify-center text-white text-base font-normal bg-gradient-to-l from-purple-600 via-fuchsia-500 to-pink-500 rounded"
                     to=""
@@ -91,7 +103,7 @@ export default function JudgingCriteriaKeyAttributes() {
                     Read More
                   </Link>
                   <img
-                    className="w-2 block md:hidden h-2.5 md:w-[26px] md:h-8 absolute right-10"
+                    className="w-2 max-[1150px]:block hidden h-2.5 md:w-[26px] md:h-8 absolute right-10"
                     src={img4}
                     alt=""
                   />

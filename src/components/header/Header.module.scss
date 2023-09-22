@@ -1,6 +1,22 @@
-.hamburger {
-  display: none;
-  @media screen and (max-width: 1150px) {
-    display: block;
+.navMenu {
+  @media screen and (max-width: 1023px) {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: #150e28;
+    flex-direction: column;
+    gap: 45px;
+    padding-top: 39px;
+    padding-left: 47px;
+    padding-right: 47px;
+
+    .ulMenu {
+      flex-direction: column;
+      width: 100%;
+    }
   }
 }

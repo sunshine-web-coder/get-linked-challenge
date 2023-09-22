@@ -7,10 +7,22 @@ import img6 from "../../../assets/partners-and-sponsors/VizualPlus.png";
 import img7 from "../../../assets/star-pu.png";
 import img8 from "../../../assets/sata-gra.png";
 import img9 from "../../../assets/star.png";
+import purpleLensFlare8Img from "../../../assets/Purple-Lens-Flare8.png";
+import purpleLensFlare6Img from "../../../assets/Purple-Lens-Flare6.png";
 
 export default function PartnersAndSponsors() {
   return (
-    <div className="p-[16px] pt-[62px] pb-[62px] border-b border-gray-700 pl-4 pr-4">
+    <div className="p-[16px] relative pt-[62px] pb-[62px] border-b border-gray-700 pl-4 pr-4">
+      <img
+        className="absolute w-[252px] h-[446px] md:w-[1037px] md:h-[948px] z-[-1] top-[50px] md:top-[-150px] left-[0px] opacity-[0.5]"
+        src={purpleLensFlare8Img}
+        alt=""
+      />
+      <img
+        className="absolute w-[252px] h-[446px] md:w-[1037px] md:h-[948px] z-[-1] max-[1150px]:top-[250px] top-[200px] right-[-100px] md:right-[-150px] opacity-[0.5]"
+        src={purpleLensFlare6Img}
+        alt=""
+      />
       <div className="custom_container">
         <div className="max-w-[530px] mx-auto text-center text-white text-xl md:text-[32px] font-bold leading-7">
           <h3 className="clash_display mb-[22px]">Partners and Sponsors</h3>

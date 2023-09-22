@@ -3,10 +3,16 @@ import img2 from "../../../assets/star-pu.png";
 import img3 from "../../../assets/Privacy-Policy-and-Terms/r.png";
 import img4 from "../../../assets/Privacy-Policy-and-Terms/list-check.png";
 import { Link } from "react-router-dom";
+import purpleLensFlare10Img from "../../../assets/Purple-Lens-Flare10.png";
 
 export default function PrivacyPolicyAndTerms() {
   return (
-    <div className="p-[16px] max-[1150px]:pt-[62px] pt-[102px] pb-[82px] border-b border-gray-700 pl-4 pr-4">
+    <div className="relative p-[16px] max-[1150px]:pt-[62px] pt-[102px] pb-[82px] border-b border-gray-700 pl-4 pr-4">
+      <img
+        className="absolute w-[285px] h-[366px] md:w-[1037px] md:h-[948px] z-[-1] max-[1150px]:bottom-[250px] bottom-[-250px] left-[0px] opacity-[0.5]"
+        src={purpleLensFlare10Img}
+        alt=""
+      />
       <div className="w-full max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center">
         <div className="custom_container max-[1150px]:flex-col flex max-[767px]:items-center">
           <div className="w-full relative max-[1150px]:mb-[50px] flex flex-col items-center justify-center md:block">

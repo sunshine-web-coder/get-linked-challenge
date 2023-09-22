@@ -1,10 +1,22 @@
 import img1 from "../../../assets/star-gray.png";
 import img2 from "../../../assets/star.png";
 import img3 from "../../../assets/7450159.png";
+import purpleLensFlare3Img from "../../../assets/Purple-Lens-Flare3.png";
+import purpleLensFlare4Img from "../../../assets/Purple-Lens-Flare4.png";
 
 export default function RulesAndGuidelines() {
   return (
-    <div className="border-b border-gray-700 pl-4 pr-4">
+    <div className="relative border-b border-gray-700 pl-4 pr-4">
+      <img
+        className="w-[404px] h-[435px] md:w-[1037px] md:h-[948px] absolute z-[-1] top-[-140px]  md:top-[-300px] left-[-100px] opacity-[0.5]"
+        src={purpleLensFlare3Img}
+        alt=""
+      />
+      <img
+        className="absolute w-[252px] h-[446px] md:w-[404px] md:h-[959px] z-[-1] top-[70px] md:top-[80px] right-[0px] opacity-[0.5]"
+        src={purpleLensFlare4Img}
+        alt=""
+      />
       <div className="w-full max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center">
         <div className="custom_container max-[1150px]:flex-col-reverse flex items-center">
           <div className="w-full relative max-[1150px]:pt-[30px] pt-[62px] pb-[62px] flex flex-col items-center justify-center md:block">

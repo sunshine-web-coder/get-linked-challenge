@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
-// import logo from "../../assets/logo.png";
+import img1 from "../../assets/star-gray.png";
+import img2 from "../../assets/star-pu.png";
+import img3 from "../../assets/star.png";
 import insta from "../../assets/footer/insta.png";
 import twitter from "../../assets/footer/twitter.png";
 import fb from "../../assets/footer/fb.png";
@@ -11,8 +13,13 @@ import { Divider } from "antd";
 
 export default function Footer() {
   return (
-    <div className="pt-[70px] p-[16px]">
-      <div className="custom_container">
+    <div className="pt-[70px] relative p-[16px]">
+      <img src={img3} className="absolute max-[767px]:top-[120px] md:w-[15px] md:h-[18px] w-[9px] h-2.5" alt="" />
+      <img src={img2} className="absolute max-[767px]:bottom-[13%] max-[767px]:left-[15%] max-[450px]:left-[30%] bottom-[80px] right-[50%] md:w-[15px] md:h-[18px] w-[9px] h-2.5" alt="" />
+      <img src={img1} className="absolute max-[767px]:top-[45%] max-[767px]:left-[45%] top-[80px] right-[30%] md:w-[15px] md:h-[18px] w-[9px] h-2.5" alt="" />
+      <img src={img3} className="absolute max-[767px]:bottom-[25%] max-[767px]:left-[55%] bottom-[150px] right-[10%] md:w-[15px] md:h-[18px] w-[9px] h-2.5" alt="" />
+
+      <div className="custom_container pl-[36px] pr-[20px]">
         <div className="flex flex-col md:flex-row gap-[32px] md:gap-[100px]">
           <div className="w-full flex flex-col justify-between">
             <div>
@@ -92,14 +99,14 @@ export default function Footer() {
                 </li>
                 <li className="flex gap-[16px]">
                   <img className="w-3 h-3" src={location} alt="" />
-                  <span>27,Alara Street Yaba 100012 Lagos State</span>
+                  <p className="max-w-[150px]">27,Alara Street Yaba 100012 Lagos State</p>
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div className="pt-[20px] pb-[20px] text-center text-white text-xs font-normal max-[767px]:mt-[64px]">
+        <div className="pt-[20px] pb-[20px] text-center text-white text-xs font-normal mt-[64px] max-[767px]:mt-[64px]">
           All rights reserved. © getlinked Ltd.
         </div>
       </div>

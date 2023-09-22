@@ -9,3 +9,19 @@
 .time_text {
   font-family: "Unica One", cursive;
 }
+.custom_input,
+.custom_textarea {
+  &::placeholder {
+    color: white;
+    font-size: 16px;
+    font-weight: normal;
+  }
+}
+
+.register_input {
+  &::placeholder {
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+  }
+}
