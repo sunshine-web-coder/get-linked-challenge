@@ -1,11 +1,20 @@
 import { Listbox } from "@headlessui/react";
 import { CheckIcon } from "@heroicons/react/20/solid";
 
-function CategoryListbox({ categories, formData, setFormData }) {
+function CategoryListbox({ label, categories, formData, setFormData }) {
   return (
-    <div className="mt-[11px]">
+    <div>
+      <div className="mb-[11px]">
+        <label
+          className="text-white text-[13px] md:text-sm font-normal mb-[11px]"
+          htmlFor="cat"
+        >
+          {label}
+        </label>
+      </div>
+
       <Listbox
-        value={formData.category}
+        value={formData.category || ''}
         onChange={(selectedCategory) =>
           setFormData({ ...formData, category: selectedCategory })
         }

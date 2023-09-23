@@ -10,13 +10,14 @@ import { fetchCategoryList } from "../../api/fetchCategoryList";
 import { submitRegistration } from "../../api/submitRegistration";
 import CategoryListbox from "../../components/categoryListbox/CategoryListbox";
 import { validateForm } from "../../components/validateForm/validateForm";
+import { Input } from "../../components/input/Input";
 
 export default function Register() {
   const [formData, setFormData] = useState({
     email: "",
     phone_number: "",
     team_name: "",
-    group_size: null,
+    group_size: 1,
     project_topic: "",
     category: null,
     privacy_poclicy_accepted: false,
@@ -75,18 +76,17 @@ export default function Register() {
 
     if (Object.keys(errors).length === 0 && formData.privacy_poclicy_accepted) {
       submitRegistration(formData)
-        .then((data) => {
-          console.log("Registration successful:", data);
-
+        .then(() => {
           setFormData({
             email: "",
             phone_number: "",
             team_name: "",
-            group_size: null,
             project_topic: "",
-            category: null,
             privacy_poclicy_accepted: false,
+            category: categories.length > 0 ? categories[0].id : null,
           });
+
+          setFormErrors({});
 
           toggleOpenModal();
         })
@@ -144,19 +144,13 @@ export default function Register() {
           <form onSubmit={handleSubmit} className="max-[767px]:mb-[30px]">
             <div className="max-[767px]:mb-[18px] mb-[29px] md:flex flex-col md:flex-row gap-[32px] justify-between">
               <div className="w-full max-[767px]:mb-[18px]">
-                <label
-                  className="text-white text-[13px] md:text-sm font-normal"
-                  htmlFor="Team’s Name"
-                >
-                  Team’s Name
-                </label>
-                <input
+                <Input
+                  label="Team’s Name"
                   type="text"
                   name="team_name"
                   placeholder="Enter the name of your group"
-                  value={formData.team_name}
+                  value={formData.team_name || ""}
                   onChange={handleInputChange}
-                  className={`custom_input text-white text-sm font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
                 {formErrors.team_name && (
                   <div className="text-[#a94442] text-sm font-normal mt-3">
@@ -165,19 +159,13 @@ export default function Register() {
                 )}
               </div>
               <div className="w-full">
-                <label
-                  className="text-white text-[13px] md:text-sm font-normal"
-                  htmlFor="Phone"
-                >
-                  Phone
-                </label>
-                <input
+                <Input
+                  label="Phone"
                   type="tel"
                   name="phone_number"
                   placeholder="Enter your phone number"
-                  value={formData.phone_number}
+                  value={formData.phone_number || ""}
                   onChange={handleInputChange}
-                  className={`custom_input text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
                 {formErrors.phone_number && (
                   <div className="text-[#a94442] text-sm font-normal mt-3">
@@ -188,19 +176,13 @@ export default function Register() {
             </div>
             <div className="max-[767px]:mb-[18px] mb-[29px] md:flex flex-col md:flex-row gap-[32px] justify-between">
               <div className="w-full max-[767px]:mb-[18px]">
-                <label
-                  className="text-white text-[13px] md:text-sm font-normal"
-                  htmlFor="Email"
-                >
-                  Email
-                </label>
-                <input
+                <Input
+                  label="Email"
                   type="email"
                   name="email"
                   placeholder="Enter your email address"
-                  value={formData.email}
+                  value={formData.email || ""}
                   onChange={handleInputChange}
-                  className={`custom_input text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
                 {formErrors.email && (
                   <div className="text-[#a94442] text-sm font-normal mt-3">
@@ -209,19 +191,13 @@ export default function Register() {
                 )}
               </div>
               <div className="w-full">
-                <label
-                  className="text-white text-[13px] md:text-sm font-normal"
-                  htmlFor="Phone"
-                >
-                  Project Topic
-                </label>
-                <input
+                <Input
+                  label="Project Topic"
                   type="text"
                   name="project_topic"
                   placeholder="What is your group project topic"
-                  value={formData.project_topic}
+                  value={formData.project_topic || ""}
                   onChange={handleInputChange}
-                  className={`custom_input text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
                 {formErrors.project_topic && (
                   <div className="text-[#a94442] text-sm font-normal mt-3">
@@ -233,32 +209,21 @@ export default function Register() {
 
             <div className="max-[767px]:mb-[18px] mb-[29px] flex gap-[15px] md:gap-[32px] justify-between">
               <div className="w-full">
-                <label
-                  className="text-white text-[13px] md:text-sm font-normal"
-                  htmlFor="Category"
-                >
-                  Category
-                </label>
                 <CategoryListbox
+                  label="Category"
                   categories={categories}
                   formData={formData}
                   setFormData={setFormData}
                 />
               </div>
               <div className="w-full">
-                <label
-                  className="text-white text-[13px] md:text-sm font-normal"
-                  htmlFor="Group Size"
-                >
-                  Group Size
-                </label>
-                <input
+                <Input
+                  label="Group Size"
                   type="number"
                   name="group_size"
                   placeholder="Group size"
-                  value={formData.group_size}
+                  value={formData.group_size || ""}
                   onChange={handleInputChange}
-                  className={`custom_input text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
                 />
               </div>
             </div>

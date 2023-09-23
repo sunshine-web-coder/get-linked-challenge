@@ -12,6 +12,8 @@ import Button from "../../components/button/Button";
 import { postContactForm } from "../../api/postContactForm";
 import toast from "react-hot-toast";
 import { contactFormValidate } from "../../components/validateForm/contactFormValidate";
+import { Input } from "../../components/input/Input";
+import { Textarea } from "../../components/textarea/Textarea";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -24,12 +26,10 @@ export default function Contact() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    const trimmedValue = value.trim();
     setFormData({
       ...formData,
-      [name]: trimmedValue,
+      [name]: value, // Make sure the property name matches the input field name
     });
-    console.log(formData); // Check the state in the console
   };
 
   const handleSubmit = async (e) => {
@@ -45,6 +45,7 @@ export default function Contact() {
           email: "",
           message: "",
         });
+        setFormErrors({});
         toast.success(
           "Message sent successfully, we'll reply to your message as soon as possible"
         );
@@ -158,14 +159,13 @@ export default function Contact() {
             className="max-[767px]:mb-[30px] mt-[47px]"
           >
             <div className="max-[767px]:mb-[25px] mb-[42px]">
-              <input
+              <Input
                 type="text"
                 id="first_name"
                 name="first_name"
                 placeholder="First Name"
-                value={formData.first_name}
+                value={formData.first_name} // Make sure formData.first_name contains the correct value
                 onChange={handleInputChange}
-                className={`custom_input pl-[24px] md:pl-[29px] pr-[24px] md:pr-[29px] pt-[13px] pb-[12px] text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
               />
               {formErrors.first_name && (
                 <div className="text-[#a94442] text-sm font-normal mt-3">
@@ -174,14 +174,13 @@ export default function Contact() {
               )}
             </div>
             <div className="max-[767px]:mb-[25px] mb-[42px]">
-              <input
+              <Input
                 type="email"
                 id="email"
                 name="email"
                 placeholder="Mail"
                 value={formData.email}
                 onChange={handleInputChange}
-                className={`custom_input pl-[24px] md:pl-[29px] pr-[24px] md:pr-[29px] pt-[13px] pb-[12px] text-white text-base font-normal w-full h-[47px] bg-white bg-opacity-5 rounded shadow border border-white`}
               />
               {formErrors.email && (
                 <div className="text-[#a94442] text-sm font-normal mt-3">
@@ -190,7 +189,7 @@ export default function Contact() {
               )}
             </div>
             <div className="mb-[31px]">
-              <textarea
+              <Textarea
                 type="text"
                 id="message"
                 name="message"

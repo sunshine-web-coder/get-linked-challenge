@@ -5,7 +5,7 @@ export const contactFormValidate = (formData) => {
    if (!formData.first_name) {
     errors.first_name = "This field may not be blank.";
   }
-
+ 
   // Validate email
   if (!formData.email) {
     errors.email = "This field may not be blank.";

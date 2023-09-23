@@ -9,6 +9,9 @@
       width: 100%;
       margin-left: 0;
       margin-bottom: 70px;
+      @media screen and (max-width: 767px) {
+        margin-bottom: 40px;
+      }
     }
     .right {
         width: 100%;
