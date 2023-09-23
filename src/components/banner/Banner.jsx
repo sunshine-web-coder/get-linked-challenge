@@ -144,7 +144,7 @@ export default function Banner() {
             </div>
           </div>
         </div>
-        <div className={`w-full relative ${style.right}`}>
+        <div className={`w-full relative max-[1150px]:top-[16px] ${style.right}`}>
           <img
             className="w-[26px] hidden md:block top-10 absolute"
             src={starGrayImg}

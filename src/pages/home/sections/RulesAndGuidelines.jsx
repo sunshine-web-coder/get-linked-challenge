@@ -1,6 +1,7 @@
 import img1 from "../../../assets/star-gray.png";
 import img2 from "../../../assets/star.png";
-import img3 from "../../../assets/7450159.png";
+import img3 from "../../../assets/desktop-7450159.png";
+import img4 from "../../../assets/mobile-7450159.png";
 import purpleLensFlare3Img from "../../../assets/Purple-Lens-Flare3.png";
 import purpleLensFlare4Img from "../../../assets/Purple-Lens-Flare4.png";
 
@@ -57,7 +58,8 @@ export default function RulesAndGuidelines() {
               src={img2}
               alt=""
             />
-            <img src={img3} alt="" />
+            <img src={img3} className="hidden md:block" alt="" />
+            <img src={img4} className="block md:hidden" alt="" />
           </div>
         </div>
       </div>
