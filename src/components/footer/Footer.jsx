@@ -14,10 +14,26 @@ import { Divider } from "antd";
 export default function Footer() {
   return (
     <div className="pt-[70px] relative p-[16px]">
-      <img src={img3} className="absolute max-[767px]:top-[120px] md:w-[15px] md:h-[18px] w-[9px] h-2.5" alt="" />
-      <img src={img2} className="absolute max-[767px]:bottom-[13%] max-[767px]:left-[15%] max-[450px]:left-[30%] bottom-[80px] right-[50%] md:w-[15px] md:h-[18px] w-[9px] h-2.5" alt="" />
-      <img src={img1} className="absolute max-[767px]:top-[45%] max-[767px]:left-[45%] top-[80px] right-[30%] md:w-[15px] md:h-[18px] w-[9px] h-2.5" alt="" />
-      <img src={img3} className="absolute max-[767px]:bottom-[25%] max-[767px]:left-[55%] bottom-[150px] right-[10%] md:w-[15px] md:h-[18px] w-[9px] h-2.5" alt="" />
+      <img
+        src={img3}
+        className="absolute max-[767px]:top-[120px] md:w-[15px] md:h-[18px] w-[9px] h-2.5"
+        alt=""
+      />
+      <img
+        src={img2}
+        className="absolute max-[767px]:bottom-[13%] max-[767px]:left-[15%] max-[450px]:left-[30%] bottom-[80px] right-[50%] md:w-[15px] md:h-[18px] w-[9px] h-2.5"
+        alt=""
+      />
+      <img
+        src={img1}
+        className="absolute max-[767px]:top-[45%] max-[767px]:left-[45%] top-[80px] right-[30%] md:w-[15px] md:h-[18px] w-[9px] h-2.5"
+        alt=""
+      />
+      <img
+        src={img3}
+        className="absolute max-[767px]:bottom-[25%] max-[767px]:left-[55%] bottom-[150px] right-[10%] md:w-[15px] md:h-[18px] w-[9px] h-2.5"
+        alt=""
+      />
 
       <div className="custom_container pl-[36px] pr-[20px]">
         <div className="flex flex-col md:flex-row gap-[32px] md:gap-[100px]">
@@ -57,12 +73,12 @@ export default function Footer() {
                   <ul>
                     {category.list.map((item, itemIndex) => (
                       <li key={itemIndex} className="mb-[11px]">
-                        <a
+                        <Link
+                          to={item.slug}
                           className="text-white text-xs font-normal leading-tight"
-                          href={item.slug}
                         >
                           {item.title}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -74,16 +90,32 @@ export default function Footer() {
                 </div>
                 <div className="flex gap-3 items-center">
                   <Link to="">
-                    <img className="max-[767px]:w-3 max-[767px]:h-3" src={insta} alt="" />
+                    <img
+                      className="max-[767px]:w-3 max-[767px]:h-3"
+                      src={insta}
+                      alt=""
+                    />
                   </Link>
                   <Link to="">
-                    <img className="max-[767px]:w-3 max-[767px]:h-3" src={twitter} alt="" />
+                    <img
+                      className="max-[767px]:w-3 max-[767px]:h-3"
+                      src={twitter}
+                      alt=""
+                    />
                   </Link>
                   <Link to="">
-                    <img className="max-[767px]:w-2 max-[767px]:h-4" src={fb} alt="" />
+                    <img
+                      className="max-[767px]:w-2 max-[767px]:h-4"
+                      src={fb}
+                      alt=""
+                    />
                   </Link>
                   <Link to="">
-                    <img className="max-[767px]:w-3 max-[767px]:h-3" src={linkedln} alt="" />
+                    <img
+                      className="max-[767px]:w-3 max-[767px]:h-3"
+                      src={linkedln}
+                      alt=""
+                    />
                   </Link>
                 </div>
               </div>
@@ -99,7 +131,9 @@ export default function Footer() {
                 </li>
                 <li className="flex gap-[16px]">
                   <img className="w-3 h-3" src={location} alt="" />
-                  <p className="max-w-[150px]">27,Alara Street Yaba 100012 Lagos State</p>
+                  <p className="max-w-[150px]">
+                    27,Alara Street Yaba 100012 Lagos State
+                  </p>
                 </li>
               </ul>
             </div>

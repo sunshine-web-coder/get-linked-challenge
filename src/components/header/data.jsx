@@ -9,7 +9,7 @@ export const menuLink = [
   },
   {
     label: "FAQs",
-    slug: "FAQs",
+    slug: "faqs",
   },
   {
     label: "Contact",

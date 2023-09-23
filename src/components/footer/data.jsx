@@ -4,19 +4,19 @@ export const footerLinks = [
     list: [
       {
         title: "Overview",
-        slug: "",
+        slug: "overview",
       },
       {
         title: "Timeline",
-        slug: "",
+        slug: "timeline",
       },
       {
         title: "FAQs",
-        slug: "",
+        slug: "faqs",
       },
       {
         title: "Register",
-        slug: "",
+        slug: "register",
       },
     ],
   },

@@ -6,6 +6,8 @@ import Footer from "./components/footer/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import Contact from "./pages/contact/Contact";
 import Register from "./pages/auth/Register";
+import Timeline from "./pages/timeline/Timeline";
+import Faqs from "./pages/faqs/Faqs";
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/timeline" element={<Timeline />} />
+        <Route path="/faqs" element={<Faqs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/register" element={<Register />} />
       </Routes>

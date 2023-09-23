@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import chainImg from "../../assets/chain.png";
-import creativeImg from "../../assets/creative.png";
+import creativeImg from "../../assets/bulb.png";
 import starImg from "../../assets/star.png";
 import starGrayImg from "../../assets/star-gray.png";
 import manImg from "../../assets/man-wearing-smart-glasses.png";
@@ -47,7 +47,7 @@ export default function Banner() {
                 <span className="flex relative">
                   <span>Tech</span>
                   <img
-                    className="w-[18px] md:w-[53px] h-[26px] absolute right-[18px] md:right-[40px] md:h-[73px] bottom-[55px] md:bottom-[65px]"
+                    className="w-[18px] md:w-[53px] h-[26px] absolute right-[18px] md:right-[40px] md:h-[73px] max-[767px]:bottom-[40px] bottom-[55px] md:bottom-[65px]"
                     src={creativeImg}
                     alt=""
                   />
