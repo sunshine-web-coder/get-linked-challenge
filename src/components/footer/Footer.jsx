@@ -60,7 +60,7 @@ export default function Footer() {
             <div className="text-white text-xs font-normal leading-tight max-[767px]:mt-[39px]">
               <Link to="">Terms of Use</Link>
               <Divider className="border-fuchsia-500" type="vertical" />
-              <Link to="">Privacy Policy</Link>
+              <Link to="privacy-policy-and-terms">Privacy Policy</Link>
             </div>
           </div>
           <div className="flex flex-col md:flex-row w-full">

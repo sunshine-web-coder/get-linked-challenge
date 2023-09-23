@@ -8,6 +8,8 @@ import Contact from "./pages/contact/Contact";
 import Register from "./pages/auth/Register";
 import Timeline from "./pages/timeline/Timeline";
 import Faqs from "./pages/faqs/Faqs";
+import Overview from "./pages/overview/Overview";
+import PrivacyPolicyAndTerms from "./pages/privacyPolicy.jsx/PrivacyPolicyAndTerms";
 
 function App() {
   return (
@@ -17,8 +19,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/timeline" element={<Timeline />} />
+        <Route path="/overview" element={<Overview />} />
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy-and-terms" element={<PrivacyPolicyAndTerms />} />
         <Route path="/register" element={<Register />} />
       </Routes>
       <Footer />
