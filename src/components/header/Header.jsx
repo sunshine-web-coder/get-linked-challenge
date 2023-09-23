@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { menuLink } from "./data";
 import hamburgerImg from "../../assets/hamburger.png"
 import closeImg from "../../assets/close.png"
@@ -7,6 +7,8 @@ import { useState } from "react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const location = useLocation();
 
   const toggleOpenMenu = () => {
     setIsOpen(true);
@@ -36,8 +38,8 @@ export default function Header() {
             </div>
             <ul className={`flex items-start lg:items-center text-base text-white gap-[30px] lg:gap-[56px] ${style.ulMenu}`}>
               {menuLink.map((navLink, i) => (
-                <li key={i} onClick={toggleCloseMenu}>
-                  <Link to={navLink.slug}>{navLink.label}</Link>
+                <li key={i} onClick={toggleCloseMenu} className="w-full">
+                  <Link to={navLink.slug} className={location.pathname === navLink.slug ? "active-link" : ""}>{navLink.label}</Link>
                 </li>
               ))}
             </ul>

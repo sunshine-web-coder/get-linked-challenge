@@ -112,7 +112,7 @@ export default function Banner() {
             </div>
           </div>
 
-          <div className="max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center">
+          <div className="max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center pb-[50px]">
             <div className="flex items-center justify-center md:justify-start gap-3">
               <div className="flex text-white text-5xl md:text-[64px] font-normal time_text leading-[85.12px]">
                 <span>0</span>

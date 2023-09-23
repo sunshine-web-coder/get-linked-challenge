@@ -1,18 +1,18 @@
 export const menuLink = [
   {
     label: "Timeline",
-    slug: "timeline",
+    slug: "/timeline",
   },
   {
     label: "Overview",
-    slug: "overview",
+    slug: "/overview",
   },
   {
     label: "FAQs",
-    slug: "faqs",
+    slug: "/faqs",
   },
   {
     label: "Contact",
-    slug: "contact",
+    slug: "/contact",
   },
 ];
