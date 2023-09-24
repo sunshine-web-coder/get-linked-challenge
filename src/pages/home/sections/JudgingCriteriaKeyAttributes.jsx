@@ -34,11 +34,13 @@ export default function JudgingCriteriaKeyAttributes() {
                   className="hidden md:block h-[257px] w-full md:h-[477px]"
                   src={img2}
                   alt=""
+                  data-aos="fade-right"
                 />
                 <img
                   className="block md:hidden h-[257px] w-full md:h-[477px]"
                   src={img3}
                   alt=""
+                  data-aos="fade-right"
                 />
               </div>
               <img
@@ -51,13 +53,13 @@ export default function JudgingCriteriaKeyAttributes() {
           <div className="w-full flex flex-col items-center justify-center md:block h-full">
             <div>
               <div className="relative max-w-[500px]">
-                <p className="text-xl md:text-[32px] max-[1150px]:text-center text-left leading-snug clash_display font-bold text-white">
+                <p className="text-xl md:text-[32px] max-[1150px]:text-center text-left leading-snug clash_display font-bold text-white" data-aos="fade-left">
                   Judging Criteria <br />
                   <span className="text-[#D434FE]">Key attributes</span>
                 </p>
               </div>
-              <div className="text-white max-[1150px]:text-center text-left mt-[16px] max-[767px]:text-[13px] text-sm font-normal max-w-[500px]">
-                <p className="leading-7">
+              <div className="text-white max-[1150px]:text-center text-left mt-[16px] max-[767px]:text-[13px] text-sm font-normal max-w-[500px]" data-aos="fade-left">
+                <p className="leading-7" >
                   <span className="text-[#D434FE]">
                     Innovation and Creativity:
                   </span>

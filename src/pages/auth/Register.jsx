@@ -26,6 +26,7 @@ export default function Register() {
   const [categories, setCategories] = useState([]);
   const [openModal, setOpenModal] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const toggleOpenModal = () => {
     setOpenModal(true);
@@ -75,6 +76,7 @@ export default function Register() {
     const errors = validateForm(formData);
 
     if (Object.keys(errors).length === 0 && formData.privacy_poclicy_accepted) {
+      setIsSubmitting(true);
       submitRegistration(formData)
         .then(() => {
           setFormData({
@@ -87,11 +89,12 @@ export default function Register() {
           });
 
           setFormErrors({});
-
+          setIsSubmitting(false);
           toggleOpenModal();
         })
         .catch((error) => {
           console.error("Error submitting registration:", error);
+          setIsSubmitting(false);
         });
     } else {
       setFormErrors(errors);
@@ -117,11 +120,11 @@ export default function Register() {
             className="absolute w-3.5 h-[13px] md:w-[21px] md:h-[25px] left-[20px] max-[767px]:left-[10px] bottom-[0px] max-[767px]:bottom-[-85%]"
             alt=""
           />
-          <div className="w-[700px] max-[1150px]:w-full max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center">
+          <div className="w-[700px] max-[1150px]:w-full max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center" data-aos="fade-right">
             <img className="max-[767px]:w-[195px]" src={img6} alt="" />
           </div>
         </div>
-        <div className="relative max-[1150px]:max-w-[740px] max-[1150px]:mx-auto p-[60px] max-[767px]:p-[20px] max-[767px]:pb-[3px] max-[767px]:w-full w-[770px] h-full max-[767px]:bg-transparent bg-white bg-opacity-5 rounded-xl shadow">
+        <div className="relative max-[1150px]:max-w-[740px] max-[1150px]:mx-auto p-[60px] max-[767px]:p-[20px] max-[767px]:pb-[3px] max-[767px]:w-full w-[770px] h-full max-[767px]:bg-transparent bg-white bg-opacity-5 rounded-xl shadow" data-aos="fade-left">
           <img
             src={img3}
             className="absolute max-[767px]:hidden w-3.5 h-[13px] md:w-[21px] md:h-[25px] right-[20%] top-[30px]"
@@ -255,7 +258,7 @@ export default function Register() {
               )}
             </div>
             <div className="w-full mt-[22px]">
-              <Button type="submit" text="Register Now" className="w-full" />
+              <Button type="submit" text="Register Now" className="w-full" disabled={isSubmitting} />
             </div>
           </form>
         </div>

@@ -7,7 +7,7 @@ export default function FrequentlyAskQuestion() {
     <div className="border-b border-gray-700 pl-4 pr-4 pt-[62px] pb-[62px]">
       <div className="w-full max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center">
         <div className="custom_container max-[1150px]:flex-col flex gap-[60px]">
-          <div className="w-full relative max-[1150px]:pt-[30px] pt-[62px] flex flex-col items-center justify-center md:block">
+          <div className="w-full relative max-[1150px]:pt-[30px] pt-[62px] flex flex-col items-center justify-center md:block" data-aos="fade-right">
             <div>
               <div className="relative">
                 <p className="pl-8 text-xl md:text-[32px] max-[1150px]:text-center text-left leading-snug clash_display font-bold text-white">
@@ -32,7 +32,7 @@ export default function FrequentlyAskQuestion() {
               </div>
             </div>
           </div>
-            <div className="max-[1150px]:max-w-[400px] max-[1150px]:mx-auto w-[300px] md:w-full relative">
+            <div className="max-[1150px]:max-w-[400px] max-[1150px]:mx-auto w-[300px] md:w-full relative" data-aos="fade-left">
               <img src={img1} alt="" />
           </div>
         </div>

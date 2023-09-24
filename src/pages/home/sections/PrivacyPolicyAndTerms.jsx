@@ -18,7 +18,7 @@ export default function PrivacyPolicyAndTerms() {
           <div className="w-full relative max-[1150px]:mb-[50px] flex flex-col items-center justify-center md:block">
             <div>
               <div className="relative max-[1150px]:mx-auto max-w-[200px] md:max-w-[300px]">
-                <p className="text-xl md:text-[32px] max-[1150px]:text-center text-left leading-snug clash_display font-bold text-white">
+                <p className="text-xl md:text-[32px] max-[1150px]:text-center text-left leading-snug clash_display font-bold text-white" data-aos="fade-down">
                   Privacy Policy and
                   <br />
                   <span className="text-[#D434FE]">Terms</span>
@@ -30,19 +30,19 @@ export default function PrivacyPolicyAndTerms() {
                 />
               </div>
               <div className="text-white relative max-[1150px]:flex flex-col max-[1150px]:text-center text-left max-[1150px]:mx-auto mt-[16px] text-xs md:text-sm font-normal max-w-[500px]">
-                <p className="leading-7">Last updated on September 12, 2023</p>
+                <p className="leading-7" data-aos="fade-right">Last updated on September 12, 2023</p>
                 <img
                   className="w-[17px] h-5 md:w-[23px] md:h-7 max-[1150px]:absolute max-[1150px]:right-0 max-[1150px]:bottom-[-25px] absolute right-[-80px] bottom-[88px]"
                   src={img2}
                   alt=""
                 />
-                <p className="md:leading-7 mt-[10px] md:mt-[30px]">
+                <p className="md:leading-7 mt-[10px] md:mt-[30px]" data-aos="fade-right">
                   Below are our privacy & policy, which outline a lot of
                   goodies. it’s our aim to always take of our participant
                 </p>
               </div>
             </div>
-            <div className="max-[767px]:w-full pl-[15px] md:pl-[72px] pr-[12px] md:pr-[39px] pt-[39px] pb-[39px] md:pt-[59px] md:pb-[59px] mt-[29px] md:mt-[69px] w-[569px] bg-zinc-300 bg-opacity-5 rounded-[5px] border border-fuchsia-500">
+            <div className="max-[767px]:w-full pl-[15px] md:pl-[72px] pr-[12px] md:pr-[39px] pt-[39px] pb-[39px] md:pt-[59px] md:pb-[59px] mt-[29px] md:mt-[69px] w-[569px] bg-zinc-300 bg-opacity-5 rounded-[5px] border border-fuchsia-500" data-aos="fade-right">
               <div className="text-center md:text-left text-white text-xs md:text-sm font-normal leading-[30.30px]">
                 At getlinked tech Hackathon 1.0, we value your privacy and are
                 committed to protecting your personal information. This Privacy
@@ -85,8 +85,8 @@ export default function PrivacyPolicyAndTerms() {
               </div>
             </div>
           </div>
-          <div className="max-[334px]:w-full flex items-center justify-center w-[300px] max-[1150px]:h-full h-[858px] md:w-full relative">
-            <img className="max-[1150px]:h-[500px] max-[767px]:h-[300px]" src={img3} alt="" />
+          <div className="max-[334px]:w-full flex items-center justify-center w-[300px] max-[1150px]:h-full h-[858px] md:w-full relative" data-aos="fade-left">
+            <img className="max-[1150px]:h-[500px] max-[767px]:h-[300px]" src={img3} alt="" data-aos="fade-left" />
           </div>
         </div>
       </div>

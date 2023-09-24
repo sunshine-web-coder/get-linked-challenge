@@ -2,8 +2,8 @@ import img1 from "../../../assets/sata-gra.png";
 import img2 from "../../../assets/the-big-idea-1.png";
 import img3 from "../../../assets/arrow.png";
 import img4 from "../../../assets/star-pu.png";
-
 export default function IntroductionToGetlinked() {
+
   return (
     <div className="border-t border-b border-gray-700 pl-4 pr-4 pt-[62px] pb-[62px]">
       <div className="max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center">
@@ -19,6 +19,7 @@ export default function IntroductionToGetlinked() {
                 className="w-[264px] h-[257px] md:w-[490px] md:h-[477px] ml-0 md:ml-[32px]"
                 src={img2}
                 alt=""
+                data-aos="fade-right"
               />
               <img
                 className="w-[49.43px] absolute bottom-0 right-[-30px] h-[57.97px] max-[1150px]:relative max-[1150px]:left-0"
@@ -30,7 +31,7 @@ export default function IntroductionToGetlinked() {
           <div className="w-full flex flex-col items-center justify-center md:block h-full md:h-[300px]">
             <div>
               <div className="relative max-w-[500px]">
-                <p className="text-xl md:text-[32px] max-[1150px]:text-center text-left leading-snug clash_display font-bold text-white">
+                <p className="text-xl md:text-[32px] max-[1150px]:text-center text-left leading-snug clash_display font-bold text-white" data-aos="fade-left">
                   Introduction to getlinked <br />
                   <span className="text-[#D434FE]">tech Hackathon 1.0</span>
                 </p>
@@ -41,7 +42,7 @@ export default function IntroductionToGetlinked() {
                 />
               </div>
               <div className="text-white max-[1150px]:text-center text-left mt-[16px] max-[767px]:text-[13px] text-sm font-normal max-w-[500px]">
-                <p className="leading-7">
+                <p className="leading-7" data-aos="fade-left">
                   Our tech hackathon is a melting pot of visionaries, and its
                   purpose is as clear as day: to shape the future. Whether
                   you&apos;re a coding genius, a design maverick, or a concept

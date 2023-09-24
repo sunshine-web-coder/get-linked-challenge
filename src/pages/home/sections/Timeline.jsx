@@ -7,7 +7,7 @@ export default function Timeline() {
   return (
     <div className="border-b border-gray-700 pl-4 pr-4 pb-[64px]">
       <div className="custom_container mt-10">
-        <div className="text-center text-white text-[32px] font-bold mb-[56px] md:mb-[91px]">
+        <div className="text-center text-white text-[32px] font-bold mb-[56px] md:mb-[91px]" data-aos="fade-down">
           <h3 className="clash_display">Timeline</h3>
           <p className="text-sm font-normal leading-normal mt-[12px]">
             Here is the breakdown of the time we anticipate using for the
@@ -23,7 +23,9 @@ export default function Timeline() {
           <div className="hidden md:block">
             {timeLineData.map((item) => (
               <div className={`flex gap-[50px] mb-[12px] ${item.flexReverse ? "flex-row-reverse" : ""}`}key={item.id}>
-                <div className={`w-full flex flex-col justify-end text-2xl font-bold ${item.flexReverse ? "text-left" : "text-right"}`}>
+                <div className={`w-full flex flex-col justify-end text-2xl font-bold ${item.flexReverse ? "text-left" : "text-right"}`}
+                 data-aos={item.flexReverse ? "fade-left" : "fade-right"}
+                >
                   <p className={`text-[#D434FE]`}>{item.title}</p>
                   <p className={`text-[#ffffff] max-[1150px]:p-0 text-sm font-normal mt-2 ${item.flexReverse ? "pr-[130px]" : "pl-[130px]"}`}>
                     {item.desc}

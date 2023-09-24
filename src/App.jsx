@@ -10,8 +10,15 @@ import Timeline from "./pages/timeline/Timeline";
 import Faqs from "./pages/faqs/Faqs";
 import Overview from "./pages/overview/Overview";
 import PrivacyPolicyAndTerms from "./pages/privacyPolicy.jsx/PrivacyPolicyAndTerms";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <div className="App">
       <Header />

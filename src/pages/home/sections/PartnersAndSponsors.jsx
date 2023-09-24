@@ -24,7 +24,7 @@ export default function PartnersAndSponsors() {
         alt=""
       />
       <div className="custom_container">
-        <div className="max-w-[530px] mx-auto text-center text-white text-xl md:text-[32px] font-bold leading-7">
+        <div className="max-w-[530px] mx-auto text-center text-white text-xl md:text-[32px] font-bold leading-7" data-aos="fade-down">
           <h3 className="clash_display mb-[22px]">Partners and Sponsors</h3>
           <p className="text-xs md:text-sm font-normal">
             Getlinked Hackathon 1.0 is honored to have the following major
@@ -37,28 +37,28 @@ export default function PartnersAndSponsors() {
         <div className="max-w-[898.34px] h-[560px] max-[450px]:h-[148.59px] max-[767px]:h-[168.59px] mx-auto flex flex-col items-center justify-center">
           <div className="flex">
             <div className="pb-5 relative flex items-center justify-center border-t-0 border-l-0 border-4 border-fuchsia-500 max-[473px]:w-[90px] max-[621px]:w-[150px] max-[1150px]:w-[200px] w-[300px]">
-              <img className="max-[1150px]:max-w-[70px] max-[450px]:w-8" src={img1} alt="" />
+              <img className="max-[1150px]:max-w-[70px] max-[450px]:w-8" src={img1} alt="" data-aos="fade-down" />
               <div className="z-[1] w-[50px] h-[50px] absolute bottom-[-30px] right-[-28px] rounded-full bg-[#150E28]" />
             </div>
             <div className="pb-5 relative flex items-center justify-center border-t-0 border-l-0 border-4 border-fuchsia-500 max-[473px]:w-[90px] max-[621px]:w-[150px] max-[1150px]:w-[200px] w-[300px]">
             <img className="w-2 h-2.5 md:w-[21px] md:h-[25px] absolute max-[450px]:top-[-20px] top-[5px] md:top-[-55px] right-[40px]" src={img8} alt="" />
-              <img className="max-[1150px]:max-w-[100px] max-[450px]:w-[56.57px]" src={img2} alt="" />
+              <img className="max-[1150px]:max-w-[100px] max-[450px]:w-[56.57px]" src={img2} alt="" data-aos="fade-down"/>
               <div className="z-[1] w-[50px] h-[50px] absolute bottom-[-30px] right-[-28px] rounded-full bg-[#150E28]" />
             </div>
             <div className="pb-5 flex items-center justify-center border-t-0 border-l-0 border-r-0 border-4 border-fuchsia-500 max-[473px]:w-[90px] max-[621px]:w-[150px] max-[1150px]:w-[200px] w-[300px]">
-              <img className="max-[1150px]:max-w-[70px] max-[450px]:w-[34.92px]" src={img3} alt="" />
+              <img className="max-[1150px]:max-w-[70px] max-[450px]:w-[34.92px]" src={img3} alt="" data-aos="fade-down" />
             </div>
           </div>
           <div className="flex">
             <div className="pt-5 flex items-center justify-center border-t-0 border-l-0 border-b-0 border-4 border-fuchsia-500 max-[450px]:w-[90px] max-[473px]:w-[120px] max-[621px]:w-[150px] max-[1150px]:w-[200px] w-[300px]">
-              <img className="max-[1150px]:max-w-[70px] max-[450px]:w-[39.01px]" src={img4} alt="" />
+              <img className="max-[1150px]:max-w-[70px] max-[450px]:w-[39.01px]" src={img4} alt="" data-aos="fade-up" />
             </div>
             <div className="relative pt-5 flex items-center justify-center border-t-0 border-l-0 border-b-0 border-4 border-fuchsia-500 max-[450px]:w-[90px] max-[473px]:w-[100px] max-[621px]:w-[150px] max-[1150px]:w-[200px] w-[300px]">
-              <img className="max-[1150px]:max-w-[70px] max-[450px]:w-[50px]" src={img5} alt="" />
+              <img className="max-[1150px]:max-w-[70px] max-[450px]:w-[50px]" src={img5} alt="" data-aos="fade-up" />
               <img className="w-2.5 h-3 md:w-[26px] md:h-8 absolute bottom-[-35px] md:bottom-[-55px] right-[40px]" src={img9} alt="" />
             </div>
             <div className="pt-5 flex items-center justify-center border-l-0 border-t-0 border-b-0 border-r-0 border-4 border-fuchsia-500 max-[450px]:w-[90px] max-[473px]:w-[100px] max-[621px]:w-[150px] max-[1150px]:w-[200px] w-[300px]">
-              <img className="max-[1150px]:max-w-[100px] max-[450px]:w-[73px]" src={img6} alt="" />
+              <img className="max-[1150px]:max-w-[100px] max-[450px]:w-[73px]" src={img6} alt="" data-aos="fade-up" />
             </div>
           </div>
         </div>

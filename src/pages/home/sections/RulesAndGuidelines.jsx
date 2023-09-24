@@ -20,7 +20,7 @@ export default function RulesAndGuidelines() {
       />
       <div className="w-full max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center">
         <div className="custom_container max-[1150px]:flex-col-reverse flex items-center">
-          <div className="w-full relative max-[1150px]:pt-[30px] pt-[62px] pb-[62px] flex flex-col items-center justify-center md:block">
+          <div className="w-full relative max-[1150px]:pt-[30px] pt-[62px] pb-[62px] flex flex-col items-center justify-center md:block" data-aos="fade-right">
             <div>
               <div className="relative max-[1150px]:mx-auto max-w-[200px] md:max-w-[300px]">
                 <p className="text-xl md:text-[32px] max-[1150px]:text-center text-left leading-snug clash_display font-bold text-white">
@@ -35,7 +35,7 @@ export default function RulesAndGuidelines() {
                 />
               </div>
               <div className="text-white max-[1150px]:flex flex-col max-[1150px]:text-center text-left max-[1150px]:mx-auto mt-[16px] text-[13px] md:text-sm font-normal max-w-[500px]">
-                <p className="leading-7">
+                <p className="leading-7" data-aos="fade-right">
                   Our tech hackathon is a melting pot of visionaries, and its
                   purpose is as clear as day: to shape the future. Whether
                   you&apos;re a coding genius, a design maverick, or a concept
@@ -58,8 +58,8 @@ export default function RulesAndGuidelines() {
               src={img2}
               alt=""
             />
-            <img src={img3} className="hidden md:block" alt="" />
-            <img src={img4} className="block md:hidden" alt="" />
+            <img src={img3} className="hidden md:block" alt="" data-aos="fade-left"/>
+            <img src={img4} className="block md:hidden" alt="" data-aos="fade-left"/>
           </div>
         </div>
       </div>

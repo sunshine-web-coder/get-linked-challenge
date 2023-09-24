@@ -23,6 +23,7 @@ export default function Contact() {
   });
 
   const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -38,6 +39,7 @@ export default function Contact() {
     const errors = contactFormValidate(formData);
 
     if (Object.keys(errors).length === 0) {
+      setIsSubmitting(true)
       try {
         await postContactForm(formData);
         setFormData({
@@ -46,11 +48,13 @@ export default function Contact() {
           message: "",
         });
         setFormErrors({});
+        setIsSubmitting(false)
         toast.success(
           "Message sent successfully, we'll reply to your message as soon as possible"
         );
       } catch (error) {
         toast.error("Failed to send message. Please try again later.");
+        setIsSubmitting(false)
       }
     } else {
       setFormErrors(errors);
@@ -66,7 +70,7 @@ export default function Contact() {
             className="absolute left-[0px] md:left-[0px] bottom-[120px] md:top-[-80px] w-[11px] h-[13px] md:w-[21px] md:h-[25px]"
             alt=""
           />
-          <div className="relative max-[767px]:hidden">
+          <div className="relative max-[767px]:hidden" data-aos="fade-right">
             <div className="text-fuchsia-500 text-[32px] font-semibold font-['Clash Display']">
               Get in touch
             </div>
@@ -91,7 +95,7 @@ export default function Contact() {
               08:00am - 05:00pm
             </p>
           </div>
-          <div className="max-[767px]:flex max-[767px]:flex-col max-[767px]:items-center max-[767px]:justify-center">
+          <div className="max-[767px]:flex max-[767px]:flex-col max-[767px]:items-center max-[767px]:justify-center" data-aos="fade-right">
             <div className="text-fuchsia-500 mb-[14px] text-base font-normal font-['Montserrat']">
               Share on
             </div>
@@ -126,7 +130,7 @@ export default function Contact() {
             </div>
           </div>
         </div>
-        <div className="relative p-[60px] max-[767px]:p-[20px] max-[767px]:pb-[3px] max-[767px]:w-full w-[617px] max-[767px]:bg-transparent bg-white bg-opacity-5 rounded-xl shadow">
+        <div className="relative p-[60px] max-[767px]:p-[20px] max-[767px]:pb-[3px] max-[767px]:w-full w-[617px] max-[767px]:bg-transparent bg-white bg-opacity-5 rounded-xl shadow" data-aos="fade-left">
           <img
             src={img3}
             className="absolute top-[10%] left-[80%] md:right-0 w-[11px] h-[13px] md:w-[21px] md:h-[25px]"
@@ -205,7 +209,7 @@ export default function Contact() {
               )}
             </div>
             <div className="flex items-center justify-center">
-              <Button type="submit" text="Submit" />
+              <Button type="submit" text="Submit" disabled={isSubmitting} />
             </div>
           </form>
         </div>

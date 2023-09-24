@@ -42,7 +42,7 @@ export default function Banner() {
             />
           </div>
           <div className="leading-slug max-[1150px]:flex max-[1150px]:flex-col max-[1150px]:items-center max-[1150px]:justify-center md:leading-[88px] mt-5 md:mt-[100px]">
-            <h1 className=" text-white flex items-center md:items-start justify-center md:justify-start clash_display text-[32px] md:text-[75px] font-bold font-['Clash Display']">
+            <h1 className=" text-white flex items-center md:items-start justify-center md:justify-start clash_display text-[32px] md:text-[75px] font-bold font-['Clash Display']" data-aos="fade-right">
               <span className="flex gap-2">
                 <span>getlinked</span>
                 <span className="flex relative">
@@ -63,7 +63,7 @@ export default function Banner() {
               </span>
             </h1>
             <div className="flex items-center md:items-start justify-center gap-1 md:justify-between">
-              <h1 data-aos="fade-right" className="text-white flex gap-2 clash_display text-[32px] md:text-[75px] font-bold font-['Clash Display']">
+              <h1 className="text-white flex gap-2 clash_display text-[32px] md:text-[75px] font-bold font-['Clash Display']" data-aos="fade-right">
                 <span>Hackathon</span>
                 <span className="text-[#D434FE] flex">
                   <span>1.0</span>
@@ -82,7 +82,7 @@ export default function Banner() {
             </div>
           </div>
           <div className="max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center text-white text-center md:text-left text-[13px] md:text-xl font-normal mt-2 leading-slug md:leading-[33.20px]">
-            <span className="max-[1150px]:text-center">
+            <span className="max-[1150px]:text-center" data-aos="fade-right">
               Participate in getlinked tech Hackathon 2023 stand <br />a chance
               to win a Big prize
             </span>
@@ -116,7 +116,7 @@ export default function Banner() {
             <CountdownTimer targetDate="2023-09-27T14:25:00" />
           </div>
         </div>
-        <div className={`w-full relative max-[1150px]:top-[16px] ${style.right}`}>
+        <div className={`w-full relative max-[1150px]:top-[16px] ${style.right}`} data-aos="fade-left">
           <img
             className="w-[26px] hidden md:block top-10 absolute"
             src={starGrayImg}
