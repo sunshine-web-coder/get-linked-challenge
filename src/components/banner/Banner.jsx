@@ -11,6 +11,7 @@ import matrixImg from "../../assets/metrix.png";
 import vector1Img from "../../assets/vector1.png";
 import spark1f4a5Img from "../../assets/1f4a5.png";
 import style from "./Banner.module.scss";
+import CountdownTimer from "../countdownTimer/CountdownTimer";
 
 
 export default function Banner() {
@@ -23,7 +24,7 @@ export default function Banner() {
       />
       <div className="flex justify-between">
         <div className="w-full pl-[16px] pr-[16px] flex flex-col items-end mr-5 justify-end relative z-[1] text-white text-4xl font-bold">
-          <div className="max-w-max leading-snug text-[16px] md:text-[36px]">
+          <div className="max-w-max leading-snug text-[16px] md:text-[36px]" data-aos="fade-left">
             Igniting a Revolution in HR Innovation
           </div>
           <div className="flex justify-end">
@@ -62,7 +63,7 @@ export default function Banner() {
               </span>
             </h1>
             <div className="flex items-center md:items-start justify-center gap-1 md:justify-between">
-              <h1 className="text-white flex gap-2 clash_display text-[32px] md:text-[75px] font-bold font-['Clash Display']">
+              <h1 data-aos="fade-right" className="text-white flex gap-2 clash_display text-[32px] md:text-[75px] font-bold font-['Clash Display']">
                 <span>Hackathon</span>
                 <span className="text-[#D434FE] flex">
                   <span>1.0</span>
@@ -112,7 +113,7 @@ export default function Banner() {
             </div>
           </div>
 
-          <div className="max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center pb-[50px]">
+          {/* <div className="max-[1150px]:flex max-[1150px]:items-center max-[1150px]:justify-center pb-[50px]">
             <div className="flex items-center justify-center md:justify-start gap-3">
               <div className="flex text-white text-5xl md:text-[64px] font-normal time_text leading-[85.12px]">
                 <span>0</span>
@@ -142,6 +143,9 @@ export default function Banner() {
                 </span>
               </div>
             </div>
+          </div> */}
+          <div>
+            <CountdownTimer targetDate="2023-09-27T14:25:00" />
           </div>
         </div>
         <div className={`w-full relative max-[1150px]:top-[16px] ${style.right}`}>
